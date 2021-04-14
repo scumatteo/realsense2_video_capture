@@ -1,0 +1,4 @@
+<launch>
+    <include file="$(find realsense2_video_capture)/launch/realsense.launch" />
+    <include file="$(find realsense2_video_capture)/launch/video_capture.launch" />
+</launch>

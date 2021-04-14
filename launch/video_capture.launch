@@ -1,0 +1,4 @@
+<launch>
+    <node pkg="realsense2_video_capture" type="video_capture_node" name="video_capture_node" output="screen" />
+
+</launch>

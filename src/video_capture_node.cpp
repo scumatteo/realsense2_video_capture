@@ -44,8 +44,10 @@ void VideoCaptureNode::onCameraMessage(const sensor_msgs::ImageConstPtr &bgr, co
     cv::Mat bgr_image = cv_bgr_ptr->image;
     cv::Mat depth_image = cv_depth_ptr->image;
 
-    ROS_INFO("rgb stamp: %d", cv_bgr_ptr->header.stamp.toNSec());
-    ROS_INFO("depth stamp: %d", cv_depth_ptr->header.stamp.toNSec());
+    std::string rgb_path = _root_path + "sequence_1/rgb/" + std::to_string(cv_bgr_ptr->header.stamp.toNSec()) + ".png";
+    std::string depth_path = _root_path + "sequence_1/depth/" + std::to_string(cv_depth_ptr->header.stamp.toNSec()) + ".png";
+    cv::imwrite(rgb_path, bgr_image);
+    cv::imwrite(depth_path, depth_image);
 }
 
 int main(int argc, char **argv)

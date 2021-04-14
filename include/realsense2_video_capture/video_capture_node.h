@@ -10,6 +10,7 @@
 #include <sensor_msgs/Image.h>
 #include <sensor_msgs/CameraInfo.h>
 #include <cv_bridge/cv_bridge.h>
+#include <opencv2/opencv.hpp>
 
 typedef message_filters::sync_policies::ExactTime<sensor_msgs::Image, sensor_msgs::Image> RGBDCameraSyncPolicy;
 
@@ -21,6 +22,7 @@ public:
 
 private:
     static const int _QUEUE_SIZE = 1; //queue size for the subscribers
+    const std::string _root_path = "/home/matteo/realsense_capture/";
 
     //raw and depth images subscribers
     message_filters::Subscriber<sensor_msgs::Image> _raw_image_sub;
